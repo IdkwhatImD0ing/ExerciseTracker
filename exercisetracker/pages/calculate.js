@@ -96,7 +96,7 @@ export default function DataEntry() {
       .catch(function (error) {
         console.error(error);
       });
-    addTimeStats(auth, [value, bmi, bodyFat])
+    addTimeStats(auth, [value, bmi.bmi, bodyFat["Body Fat (BMI method)"]]);
     setCalculated(true);
   };
 
