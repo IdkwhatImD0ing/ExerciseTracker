@@ -5,6 +5,12 @@ const nextConfig = {
   images: {
     loader: "akamai",
     domains: ["d205bpvrqc9yn1.cloudfront.net"],
+    path: "/",
+  },
+  experimental: {
+    images: {
+      unoptimized: true,
+    },
   },
 };
 
