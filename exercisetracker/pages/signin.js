@@ -17,6 +17,7 @@ import Container from "@mui/material/Container";
 import { Link } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import MainAppBar from "./components/navbar";
+import { theme } from "../components/theme";
 
 function Copyright(props) {
   return (
@@ -30,21 +31,6 @@ function Copyright(props) {
     </Typography>
   );
 }
-
-const theme = createTheme({
-  palette: {
-    type: "dark",
-    primary: {
-      main: "#000000",
-    },
-    secondary: {
-      main: "#7cdedc",
-    },
-    background: {
-      default: "#63666A",
-    },
-  },
-});
 
 const url =
   "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1375&q=80";

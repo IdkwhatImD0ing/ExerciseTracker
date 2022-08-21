@@ -4,10 +4,11 @@ import Toolbar from "@mui/material/Toolbar";
 import Container from "@mui/material/Container";
 import { useAuth } from "../../auth/UserAuthContext";
 import { useRouter } from "next/router";
-import { Stack, Typography } from "@mui/material";
+import { Stack, ThemeProvider, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import LoginButtons from "./scomponents/loginbuttons";
 import Buttons from "./scomponents/buttons";
+import { theme } from "../../components/theme";
 
 export default function MainAppBar() {
   const auth = useAuth();
@@ -15,37 +16,35 @@ export default function MainAppBar() {
   const width = useWindowSize();
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: "green" }}>
-      <Container maxWidth="xl">
-        <Toolbar>
-          <Stack
-            direction="row"
-            justifyContent="space-between"
-            alignItems="center"
-            spacing={2}
-            sx={{ width: "100%" }}
-          >
-            <Box>
-              <Stack direction="row" alignItems="center">
-                <a href="/">
-                  <img src="/logo.png" alt="logo" height={50} />
-                </a>
-                <Typography
-                  variant="h4"
-                  component="div"
-                  sx={{ ml: 2, color: "black" }}
-                >
-                  MakeMeFit
-                </Typography>
-              </Stack>
-            </Box>
+    <ThemeProvider theme={theme}>
+      <AppBar position="static">
+        <Container maxWidth="xl">
+          <Toolbar>
+            <Stack
+              direction="row"
+              justifyContent="space-between"
+              alignItems="center"
+              spacing={2}
+              sx={{ width: "100%" }}
+            >
+              <Box>
+                <Stack direction="row" alignItems="center">
+                  <a href="/">
+                    <img src="/logo.png" alt="logo" height={50} />
+                  </a>
+                  <Typography variant="h4" component="div" sx={{ ml: 2 }}>
+                    RemoteTrainer
+                  </Typography>
+                </Stack>
+              </Box>
 
-            {!auth.user && <LoginButtons />}
-            {auth.user && <Buttons />}
-          </Stack>
-        </Toolbar>
-      </Container>
-    </AppBar>
+              {!auth.user && <LoginButtons />}
+              {auth.user && <Buttons />}
+            </Stack>
+          </Toolbar>
+        </Container>
+      </AppBar>
+    </ThemeProvider>
   );
 }
 

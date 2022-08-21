@@ -24,22 +24,8 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import { calculateBMI, calculateBodyFat } from "../helperFunctions/apiCalls";
 import MainAppBar from "./components/navbar";
+import { theme } from "../components/theme";
 const axios = require("axios");
-
-const theme = createTheme({
-  palette: {
-    type: "dark",
-    primary: {
-      main: "#000000",
-    },
-    secondary: {
-      main: "#7cdedc",
-    },
-    background: {
-      default: "#90ee90",
-    },
-  },
-});
 
 export default function DataEntry() {
   const auth = useAuth();
