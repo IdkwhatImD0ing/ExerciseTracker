@@ -6,6 +6,8 @@ import { useState } from "react";
 import { useAuth } from "../auth/UserAuthContext";
 import { setErrorMessage } from "../auth/setErrorMessage";
 
+import { addStats} from "../helperFunctions/firebaseHelper";
+
 import * as React from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
@@ -97,6 +99,7 @@ export default function DataEntry() {
       },
     };
 
+    addStats(auth, options2.params);
     axios
       .request(options2)
       .then(function (response) {
