@@ -18,6 +18,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
 import { bodyParts, equipment } from "../helperFunctions/lists";
 import { DataGrid } from "@mui/x-data-grid";
+import MainAppBar from "./components/navbar";
 
 const axios = require("axios");
 
@@ -161,7 +162,17 @@ export default function Select() {
 
   return (
     <>
-      <Box component="section">
+      <MainAppBar />
+      <Box
+        component="section"
+        sx={{
+          display: "flex",
+          overflow: "auto",
+          flexDirection: "column",
+          height: "80vh",
+          mt: "5%",
+        }}
+      >
         <Container maxWidth="xl" sx={{ textAlign: "center" }}>
           <Grid container spacing={2}>
             <Grid item xs={6}>

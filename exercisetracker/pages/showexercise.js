@@ -2,6 +2,7 @@ import { useAuth } from "../auth/UserAuthContext";
 import { useRouter } from "next/router";
 import { Box, Container, Stack } from "@mui/system";
 import { Typography } from "@mui/material";
+import MainAppBar from "./components/navbar";
 
 export default function ShowExercise() {
   const auth = useAuth();
@@ -10,13 +11,15 @@ export default function ShowExercise() {
 
   return (
     <>
+      <MainAppBar />
       <Box
         component="section"
         sx={{
           display: "flex",
           overflow: "auto",
           flexDirection: "column",
-          height: "100vh",
+          justifyContent: "center",
+          height: "90vh",
         }}
       >
         <Container maxWIdth="xl" sx={{ textAlign: "center" }}>
