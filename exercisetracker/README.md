@@ -11,9 +11,9 @@ Furthermore, sometimes it feel like working out is doing nothing, and thus we lo
 
 RemoteTrainer allows people to filter and search through the muscle groups they are trying to work out as well as the equipment they have, and after submitting that information, RemoteTrainer will show a list of exercises that the user can use. 
 
-Furthermore, a gif is provided showing how to perform the exercise, as well as some small details about the exercise. 
+Moreoever, a gif is provided showing how to perform the exercise, as well as some small details about the exercise. 
 
-It will also keep track of the users BMI and body fat as the user keeps updating their information regarding age, height, weight, etc.
+The app will also keep track of the users BMI and body fat as the user keeps updating their information regarding age, height, weight, etc.
 
 ## How we built it
 
@@ -22,6 +22,10 @@ The front end was built using Next.js and the database and authentication was im
 Furthermore, we used [Material UI](https://mui.com/) as our front end library for easy to use components.
 
 We used two seperate apis to [generate the exercises](https://rapidapi.com/justin-WFnsXH_t6/api/exercisedb/) and to [calculate BMI and Body Fat](https://rapidapi.com/malaaddincelik/api/fitness-calculator/). Axios was used to handle the API calls. 
+
+Finally, the site was hosted on [Cloudflare](https://www.cloudflare.com/) which allows to encrypted traffic alongside ddos protection.
+
+Last but not least, we were able to use Cloudflare to deploy on a custom domain from [Name.com](name.com).
 
 ## Challenges we ran into
 
