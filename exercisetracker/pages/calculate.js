@@ -72,6 +72,7 @@ export default function DataEntry() {
     axios
       .request(options)
       .then(function (response) {
+        console.log(response.data);
         setBMI(response.data);
       })
       .catch(function (error) {
@@ -99,6 +100,7 @@ export default function DataEntry() {
     axios
       .request(options2)
       .then(function (response) {
+        console.log(response.data);
         setBodyFat(response.data);
       })
       .catch(function (error) {
@@ -106,8 +108,6 @@ export default function DataEntry() {
       });
 
     setCalculated(true);
-    console.log(bmi);
-    console.log(bodyFat);
   };
 
   return (
@@ -136,7 +136,7 @@ export default function DataEntry() {
                   id="age"
                   label="age"
                   name="age"
-                  autoComplete="0"
+                  defaultValue="18"
                 />
               </Grid>
               <Grid item xs={6}>
@@ -146,7 +146,7 @@ export default function DataEntry() {
                   id="gender"
                   label="gender"
                   name="gender"
-                  autoComplete="none"
+                  defaultValue="male"
                 />
               </Grid>
               <Grid item xs={6}>
@@ -156,7 +156,7 @@ export default function DataEntry() {
                   id="weight"
                   label="weight"
                   name="weight"
-                  autoComplete="0"
+                  defaultValue="80"
                 />
               </Grid>
               <Grid item xs={6}>
@@ -166,7 +166,7 @@ export default function DataEntry() {
                   id="height"
                   label="height"
                   name="height"
-                  autoComplete="180"
+                  defaultValue="180"
                 />
               </Grid>
               <Grid item xs={6}>
@@ -176,7 +176,7 @@ export default function DataEntry() {
                   id="neck"
                   label="neck"
                   name="neck"
-                  autoComplete="none"
+                  defaultValue="20"
                 />
               </Grid>
               <Grid item xs={6}>
@@ -186,7 +186,7 @@ export default function DataEntry() {
                   id="waist"
                   label="waist"
                   name="waist"
-                  autoComplete="none"
+                  defaultValue="50"
                 />
               </Grid>
               <Grid item xs={6}>
@@ -196,7 +196,7 @@ export default function DataEntry() {
                   id="hip"
                   label="hip"
                   name="hip"
-                  autoComplete="none"
+                  defaultValue="50"
                 />
               </Grid>
               <Grid item xs={6}>
@@ -213,6 +213,11 @@ export default function DataEntry() {
               Submit
             </Button>
           </Box>
+          {calculated && (
+            <Typography color="black">
+              BMI: {bmi.bmi} Body Fat: {bodyFat.Body}
+            </Typography>
+          )}
         </Box>
       </LocalizationProvider>
     </ThemeProvider>
