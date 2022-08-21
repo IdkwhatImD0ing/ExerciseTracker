@@ -16,15 +16,11 @@ import Typography from "@mui/material/Typography";
 import { Link } from "@mui/material";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import MainAppBar from "./components/navbar";
 
 function Copyright(props) {
   return (
-    <Typography
-      variant="body2"
-      align="center"
-      color="#FFFFFF"
-      {...props}
-    >
+    <Typography variant="body2" align="center" color="#FFFFFF" {...props}>
       {"Copyright © "}
       <Link color="#FFFFFF" href="/">
         ExerciseTracker
@@ -86,9 +82,10 @@ const SignUp = () => {
         <title>Sign Up</title>
         <link rel="icon" href="/icon.ico" />
       </Head>
+      <MainAppBar />
       <Box
         width="100vw"
-        height="100vh"
+        height="90vh"
         direction="column"
         alignItems="center"
         justify="center"

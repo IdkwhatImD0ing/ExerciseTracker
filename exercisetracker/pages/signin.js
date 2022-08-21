@@ -16,6 +16,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { Link } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import MainAppBar from "./components/navbar";
 
 function Copyright(props) {
   return (
@@ -76,9 +77,10 @@ const Login = () => {
         <title>Sign In</title>
         <link rel="icon" href="/icon.ico" />
       </Head>
+      <MainAppBar />
       <Box
         width="100vw"
-        height="100vh"
+        height="90vh"
         direction="column"
         alignItems="center"
         justify="center"

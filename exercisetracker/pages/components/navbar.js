@@ -6,8 +6,8 @@ import { useAuth } from "../../auth/UserAuthContext";
 import { useRouter } from "next/router";
 import { Stack } from "@mui/material";
 import { useEffect, useState } from "react";
+import LoginButtons from "./scomponents/loginbuttons";
 import Buttons from "./scomponents/buttons";
-import LoginButtons from "./scomponents/loginbutton";
 
 export default function MainAppBar() {
   const auth = useAuth();
