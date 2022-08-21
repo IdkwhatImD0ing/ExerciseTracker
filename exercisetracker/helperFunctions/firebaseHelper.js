@@ -13,65 +13,17 @@ import {
   getDocFromServer,
 } from "firebase/firestore";
 
-export function addAge(auth, num) {
+
+import { encode, decode } from "firebase-encode";
+
+export function addStats(auth, obj) {
+
   let userId = auth.user.uid;
   let colRef = collection(database, userId);
   let docRef = doc(colRef, "stats");
 
-  setDoc(docRef, { age: num }, { merge: true });
-  return;
-}
 
-export function addGender(auth, str) {
-  let userId = auth.user.uid;
-  let colRef = collection(database, userId);
-  let docRef = doc(colRef, "stats");
+  setDoc(docRef, { age: obj.age, gender: obj.gender, weight: obj.weight, height: obj.height, neck: obj.neck, waist: obj.waist, hip: obj.hip}, { merge: true});
 
-  setDoc(docRef, { gender: str }, { merge: true });
-  return;
-}
-
-export function addWeight(auth, num) {
-  let userId = auth.user.uid;
-  let colRef = collection(database, userId);
-  let docRef = doc(colRef, "stats");
-
-  setDoc(docRef, { weight: num }, { merge: true });
-  return;
-}
-
-export function addHeight(auth, num) {
-  let userId = auth.user.uid;
-  let colRef = collection(database, userId);
-  let docRef = doc(colRef, "stats");
-
-  setDoc(docRef, { height: num }, { merge: true });
-  return;
-}
-
-export function addNeck(auth, num) {
-  let userId = auth.user.uid;
-  let colRef = collection(database, userId);
-  let docRef = doc(colRef, "stats");
-
-  setDoc(docRef, { neck: num }, { merge: true });
-  return;
-}
-
-export function addWaist(auth, num) {
-  let userId = auth.user.uid;
-  let colRef = collection(database, userId);
-  let docRef = doc(colRef, "stats");
-
-  setDoc(docRef, { waist: num }, { merge: true });
-  return;
-}
-
-export function addHip(auth, num) {
-  let userId = auth.user.uid;
-  let colRef = collection(database, userId);
-  let docRef = doc(colRef, "stats");
-
-  setDoc(docRef, { hip: num }, { merge: true });
   return;
 }
