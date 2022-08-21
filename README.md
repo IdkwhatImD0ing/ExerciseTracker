@@ -1,5 +1,6 @@
 # Remote Trainer 
 [Website, try it out!](https://remotetrainer.live)
+
 [Video Demo](https://www.youtube.com/watch?v=owxz8-TAM50)
 
 ## Inspiration
