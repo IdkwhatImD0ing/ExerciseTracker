@@ -1,34 +1,54 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Remote Trainer
+Website, try it out! [Link](https://remotetrainer.live)
 
-## Getting Started
+## Inspiration
 
-First, run the development server:
+As college students, most of us do not have the time, money, or even motivation to go to the gym consistently. This web app was built to help students work out from the comfort of their room using what is available to them.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+Furthermore, sometimes it feel like working out is doing nothing, and thus we lose motivation to continue working out. That's why we built a BMI and body fat tracker into our app. By providing a tangible display of improvement, it allows users maintain or even increase their motivation to continue working out.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## What it does
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+RemoteTrainer allows people to filter and search through the muscle groups they are trying to work out as well as the equipment they have, and after submitting that information, RemoteTrainer will show a list of exercises that the user can use. 
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Moreoever, a gif is provided showing how to perform the exercise, as well as some small details about the exercise. 
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+The app will also keep track of the users BMI and body fat as the user keeps updating their information regarding age, height, weight, etc.
 
-## Learn More
+## How we built it
 
-To learn more about Next.js, take a look at the following resources:
+The front end was built using Next.js and the database and authentication was implemented using [Firebase Authentication](https://firebase.google.com/docs/auth) and [Firebase Firestore Realtime Database](https://firebase.google.com/docs/firestore).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Furthermore, we used [Material UI](https://mui.com/) as our front end library for easy to use components.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+We used two seperate apis to [generate the exercises](https://rapidapi.com/justin-WFnsXH_t6/api/exercisedb/) and to [calculate BMI and Body Fat](https://rapidapi.com/malaaddincelik/api/fitness-calculator/). Axios was used to handle the API calls. 
 
-## Deploy on Vercel
+Finally, the site was hosted on [Cloudflare](https://www.cloudflare.com/) which allows to encrypted traffic alongside ddos protection.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Last but not least, we were able to use Cloudflare to deploy on a custom domain from [Name.com](name.com).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Challenges we ran into
+
+One of the biggest challenges we ran into was having a few members not being able to work with us, so we had to redistribute tasks and plan accordingly.
+
+Apart from that, that other major challenges we had was time management. This was due to using many new libraries and countless hours were spent pouring over documentation.
+
+## Accomplishments that we're proud of
+
+We were able to successfully make a website and deploy it. Furthermore, we were able to discover new components to build new tools.
+
+An example would be the multiselect tool we used to select the equipment and body parts. We were able to filter the list based on a search bar and at the same time use checkboxes to select the entries we wanted. The selections were then combined and passed into an api to generate exercises. 
+
+## What we learned
+
+We learned a great deal about Material UI that we did not know before. The new styling options, themes, and components would be a great help in the future. 
+
+Furthermore, over the course of this hackathon, we familarized ourselves with more firebase api and methods to handle asynchronus code. 
+
+Apart from coding, we focused extensively on branches and pull requests. This allowed up more practice with dealing with merge conflicts and keeping a clean history of code.
+
+## What's next for RemoteTrainer
+
+There are many features to come for RemoteTrainer such as graphs for visualization with progress, as well as many convenience upgrades such as favoriting workouts, making playlists, streaks, and daily notifications.
+
+Apart from feature updates, we also plan on making styling, security, and quality of life updates. 

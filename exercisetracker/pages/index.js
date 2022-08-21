@@ -14,6 +14,10 @@ export default function Home() {
 
   return (
     <ThemeProvider theme={theme}>
+      <Head>
+        <title>HomePage</title>
+        <link rel="icon" href="/icon.ico" />
+      </Head>
       <Box
         component="section"
         sx={{

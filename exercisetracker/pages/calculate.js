@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Head from "next/head";
 import { useAuth } from "../auth/UserAuthContext";
 import { addStats, addTimeStats } from "../helperFunctions/firebaseHelper";
 import * as React from "react";
@@ -104,6 +105,10 @@ export default function DataEntry() {
 
   return (
     <ThemeProvider theme={theme}>
+      <Head>
+        <title>Records</title>
+        <link rel="icon" href="/icon.ico" />
+      </Head>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <Box
           component="section"
