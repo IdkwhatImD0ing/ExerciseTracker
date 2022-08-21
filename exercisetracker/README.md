@@ -45,6 +45,8 @@ We learned a great deal about Material UI that we did not know before. The new s
 
 Furthermore, over the course of this hackathon, we familarized ourselves with more firebase api and methods to handle asynchronus code. 
 
+Apart from coding, we focused extensively on branches and pull requests. This allowed up more practice with dealing with merge conflicts and keeping a clean history of code.
+
 ## What's next for RemoteTrainer
 
 There are many features to come for RemoteTrainer such as graphs for visualization with progress, as well as many convenience upgrades such as favoriting workouts, making playlists, streaks, and daily notifications.
