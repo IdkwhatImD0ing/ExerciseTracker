@@ -1,5 +1,4 @@
-import Check from "../components/check";
-import ListChecks from "../components/listchecks";
+import { useRouter } from "next/router";
 import {
   Grid,
   List,
@@ -18,6 +17,7 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
 import { bodyParts, equipment } from "../helperFunctions/lists";
+import { DataGrid } from "@mui/x-data-grid";
 
 const axios = require("axios");
 
@@ -56,6 +56,47 @@ export default function Select() {
   const bodyPartsFiltered = filterData(searchQueryBody, bodyParts);
   const [equipmentIndex, setEquipmentIndex] = useState([]);
   const [bodyIndex, setBodyIndex] = useState([]);
+  const [exerciseObject, setExerciseObject] = useState(null);
+  const router = useRouter();
+
+  const columns = [
+    { field: "name", headerName: "Name", width: 500 },
+    { field: "bodyPart", headerName: "Body Part", wwidth: 100 },
+    { field: "equipment", headerName: "Equipment", width: 100 },
+    { field: "target", headerName: "Target", width: 100 },
+    { field: "id", headerName: "ID", width: 100 },
+    {
+      field: "",
+      headerName: "Action",
+      sortable: false,
+      renderCell: (params) => {
+        const onClick = () => {
+          /*
+          console.log(params.row.id);
+          console.log(params.row.name);
+          console.log(params.row.bodyPart);
+          console.log(params.row.equipment);
+          console.log(params.row.target);
+          console.log(params.row.gifUrl);
+          */
+          router.push({
+            pathname: "/showexercise",
+            query: {
+              id: params.row.id,
+              name: params.row.name,
+              bodyPart: params.row.bodyPart,
+              equipment: params.row.equipment,
+              target: params.row.target,
+              gifUrl: params.row.gifUrl,
+            },
+          });
+        };
+
+        return <Button onClick={onClick}>Select</Button>;
+      },
+    },
+    { field: "gifUrl", headerName: "Gif", width: 100 },
+  ];
 
   const handleEquipChange = (event, equipment) => {
     if (event.target.checked) {
@@ -102,7 +143,7 @@ export default function Select() {
             returnData.push(data[i]);
           }
         }
-        console.log(returnData);
+        setExerciseObject(returnData);
       })
       .catch(function (error) {
         console.log(error);
@@ -171,32 +212,17 @@ export default function Select() {
           <Button variant="contained" onClick={handleSubmit}>
             Submit
           </Button>
+          {exerciseObject && (
+            <div style={{ height: 400, width: "100%" }}>
+              <DataGrid
+                rows={exerciseObject}
+                columns={columns}
+                columnVisibilityModel={{ gifUrl: false }}
+              />
+            </div>
+          )}
         </Container>
       </Box>
-
-      {/*
-            <Box>
-                <Box>Muscle Groups</Box>
-                <TextField id="standard-basic" label="Search" variant="standard" onChange={handleMuscleChange}/>
-                {list.filter(item => 
-                    (item.toLowerCase().includes(muscleSearch.toLowerCase()))
-                ).map(muscle =>
-                    <Check name={muscle}/>
-                )}
-                
-            </Box>
-
-            <Box>
-                <Box>Equipment</Box>
-                <TextField id="standard-basic" label="Search" variant="standard" onChange={handleEquipmentChange}/>
-                {list.filter(item => 
-                    (item.toLowerCase().includes(equipmentSearch.toLowerCase()))
-                ).map(muscle =>
-                    <Check name={muscle}/>
-                )}
-                
-            </Box>
-                */}
     </>
   );
 }
