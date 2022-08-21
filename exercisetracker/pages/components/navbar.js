@@ -4,7 +4,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Container from "@mui/material/Container";
 import { useAuth } from "../../auth/UserAuthContext";
 import { useRouter } from "next/router";
-import { Stack } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import LoginButtons from "./scomponents/loginbuttons";
 import Buttons from "./scomponents/buttons";
@@ -26,10 +26,20 @@ export default function MainAppBar() {
             sx={{ width: "100%" }}
           >
             <Box>
-              <a href="/">
-                <img src="/logo.png" alt="logo" height={50} />
-              </a>
+              <Stack direction="row" alignItems="center">
+                <a href="/">
+                  <img src="/logo.png" alt="logo" height={50} />
+                </a>
+                <Typography
+                  variant="h4"
+                  component="div"
+                  sx={{ ml: 2, color: "black" }}
+                >
+                  MakeMeFit
+                </Typography>
+              </Stack>
             </Box>
+
             {!auth.user && <LoginButtons />}
             {auth.user && <Buttons />}
           </Stack>

@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useAuth } from "../auth/UserAuthContext";
 import { setErrorMessage } from "../auth/setErrorMessage";
 
-import { addStats} from "../helperFunctions/firebaseHelper";
+import { addStats } from "../helperFunctions/firebaseHelper";
 
 import * as React from "react";
 import Avatar from "@mui/material/Avatar";
@@ -23,6 +23,7 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import { calculateBMI, calculateBodyFat } from "../helperFunctions/apiCalls";
+import MainAppBar from "./components/navbar";
 const axios = require("axios");
 
 const theme = createTheme({
@@ -116,12 +117,14 @@ export default function DataEntry() {
   return (
     <ThemeProvider theme={theme}>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
+        <MainAppBar />
         <Box
           sx={{
             display: "flex",
+            flexGrow: 1,
             overflow: "auto",
             flexDirection: "column",
-            minHeight: "100vh",
+            minHeight: "90vh",
             backgroundColor: "lightgray",
           }}
         >

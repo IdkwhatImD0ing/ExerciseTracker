@@ -11,7 +11,7 @@ export default function Buttons() {
       <Box alignItems="center">
         <Button
           variant="contained"
-          href="#"
+          href="/select"
           sx={{
             mt: 2,
             mb: 2,
@@ -27,7 +27,7 @@ export default function Buttons() {
         </Button>
         <Button
           variant="contained"
-          href="#"
+          href="/calculate"
           sx={{
             mt: 2,
             mb: 2,
