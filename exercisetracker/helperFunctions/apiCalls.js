@@ -17,24 +17,23 @@ export async function getFilteredExercises(bodyParts, equipment) {
     .request(options)
     .then(function (response) {
       data = response.data;
+      for (let i = 0; i < 14; i++) {
+        for (let j = 0; j < 100; j++) {
+          if (data[i][j] === undefined) {
+            break;
+          }
+          if (
+            bodyParts.includes(data[i][j].bodyPart) &&
+            equipment.includes(data[i][j].equipment)
+          ) {
+            returnData.push(data[i][j]);
+          }
+        }
+      }
     })
     .catch(function (error) {
-      return error;
+      console.log(error);
     });
-  for (let i = 0; i < 14; i++) {
-    for (let j = 0; j < 100; j++) {
-      if (data[i][j] === undefined) {
-        break;
-      }
-      if (
-        bodyParts.includes(data[i][j].bodyPart) &&
-        equipment.includes(data[i][j].equipment)
-      ) {
-        returnData.push(data[i][j]);
-      }
-    }
-  }
+
   return returnData;
 }
-
-
