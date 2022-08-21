@@ -215,7 +215,12 @@ export default function DataEntry() {
           </Box>
           {calculated && (
             <Typography color="black">
-              BMI: {bmi.bmi} Body Fat: {bodyFat.Body}
+              BMI: {bmi.bmi} Health or not: {bmi.health} Healthy BMI range:{" "}
+              {bmi.healthy_bmi_range} Body Fat using BMI Method:
+              {bodyFat["Body Fat (BMI method)"]}% Body Fat using US Navy Method:{" "}
+              {bodyFat["Body Fat (U.S. Navy Method)"] * 100}% Body Fat Mass:{" "}
+              {bodyFat["Body Fat Mass"] * 100}% Lean Body Mass:{" "}
+              {bodyFat["Lean Body Mass"]}%
             </Typography>
           )}
         </Box>
