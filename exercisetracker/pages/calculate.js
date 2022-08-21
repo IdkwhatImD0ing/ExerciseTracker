@@ -11,7 +11,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Typography from "@mui/material/Typography";
-import { Stack } from "@mui/system";
+import { Stack, Paper } from "@mui/system";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -19,6 +19,9 @@ import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import MainAppBar from "./components/navbar";
 import { theme } from "../components/theme";
 const axios = require("axios");
+
+const url =
+  "https://images.unsplash.com/photo-1506143925201-0252c51780b0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80";
 
 export default function DataEntry() {
   const auth = useAuth();
@@ -99,24 +102,33 @@ export default function DataEntry() {
   return (
     <ThemeProvider theme={theme}>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
-        <MainAppBar />
         <Box
+          component="section"
           sx={{
             display: "flex",
-            flexGrow: 1,
             overflow: "auto",
+            backgroundImage: `url(${url})`,
+            backgroundPosition: "center",
+            backgroundSize: "cover",
             flexDirection: "column",
-            minHeight: "90vh",
-            backgroundColor: "lightgray",
+            height: "100vh",
+            textAlign: "center",
+            alignItems: "center",
           }}
         >
+          <MainAppBar />
+
           <Box
             component="form"
             noValidate
             onSubmit={handleSubmit}
-            sx={{ mt: 3 }}
+            width="50%"
+            sx={{
+              mt: 5,
+              textAlign: "center",
+            }}
           >
-            <Grid container spacing={2}>
+            <Grid container spacing={2} sx={{ mt: 5, mb: 5 }}>
               <Grid item xs={6}>
                 <TextField
                   required
@@ -198,14 +210,15 @@ export default function DataEntry() {
                   inputFormat="MM/dd/yyyy"
                   value={value}
                   onChange={handleChange}
-                  renderInput={(params) => <TextField {...params} />}
+                  renderInput={(params) => <TextField {...params} fullWidth />}
                 />
               </Grid>
             </Grid>
-            <Button type="submit" fullWidth variant="contained">
+            <Button type="submit" variant="contained">
               Submit
             </Button>
           </Box>
+
           {calculated && (
             <Stack
               direction="column"

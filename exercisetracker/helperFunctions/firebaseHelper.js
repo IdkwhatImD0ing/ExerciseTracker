@@ -39,6 +39,7 @@ export function addTimeStats(auth, obj) {
   let userId = auth.user.uid;
   let colRef = collection(database, userId);
   let docRef = doc(colRef, "time_stats");
+  console.log(obj);
 
   setDoc(docRef, { [obj[0]]: [obj[1], obj[2]] }, { merge: true });
   return;
