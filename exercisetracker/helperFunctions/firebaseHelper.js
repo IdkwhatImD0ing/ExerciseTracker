@@ -27,3 +27,12 @@ export function addStats(auth, obj) {
 
   return;
 }
+
+export function addTimeStats(auth, obj) {
+  let userId = auth.user.uid;
+  let colRef = collection(database, userId);
+  let docRef = doc(colRef, "time_stats");
+
+  setDoc(docRef, { time_stats: obj}, { merge: true});
+  return;
+}

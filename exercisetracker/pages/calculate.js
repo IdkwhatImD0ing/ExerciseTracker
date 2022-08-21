@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useAuth } from "../auth/UserAuthContext";
 import { setErrorMessage } from "../auth/setErrorMessage";
 
-import { addStats } from "../helperFunctions/firebaseHelper";
+import { addStats, addTimeStats } from "../helperFunctions/firebaseHelper";
 
 import * as React from "react";
 import Avatar from "@mui/material/Avatar";
@@ -110,7 +110,7 @@ export default function DataEntry() {
       .catch(function (error) {
         console.error(error);
       });
-
+    addTimeStats(auth, [value, bmi, bodyFat])
     setCalculated(true);
   };
 
