@@ -13,6 +13,7 @@ import {
   Button,
   Checkbox,
   Typography,
+  Stack,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
@@ -62,15 +63,18 @@ export default function Select() {
   const [exerciseObject, setExerciseObject] = useState(null);
   const router = useRouter();
 
+  const url =
+    "https://images.unsplash.com/photo-1547127796-06bb04e4b315?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80";
+
   const columns = [
     { field: "name", headerName: "Name", width: 500 },
     { field: "bodyPart", headerName: "Body Part", wwidth: 100 },
-    { field: "equipment", headerName: "Equipment", width: 100 },
-    { field: "target", headerName: "Target", width: 100 },
+    { field: "equipment", headerName: "Equipment", width: 200 },
+    { field: "target", headerName: "Target", width: 200 },
     { field: "id", headerName: "ID", width: 100 },
     {
       field: "",
-      headerName: "Action",
+      headerName: "View",
       sortable: false,
       renderCell: (params) => {
         const onClick = () => {
@@ -129,20 +133,15 @@ export default function Select() {
     let data = undefined;
     let returnData = [];
 
-    console.log(bodyIndex);
-    console.log(equipmentIndex);
-
     axios
       .request(options)
       .then(function (response) {
         data = response.data;
-        console.log(response.data);
         for (let i = 0; i < 1327; i++) {
           if (
             bodyIndex.includes(data[i].bodyPart) &&
             equipmentIndex.includes(data[i].equipment)
           ) {
-            console.log(data[i]);
             returnData.push(data[i]);
           }
         }
@@ -165,25 +164,57 @@ export default function Select() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <MainAppBar />
         <Box
           component="section"
           sx={{
             display: "flex",
             overflow: "auto",
+            backgroundImage: `url(${url})`,
+            backgroundPosition: "center",
+            backgroundSize: "cover",
             flexDirection: "column",
-            height: "80vh",
-            mt: "5%",
+            height: "100vh",
           }}
         >
-          <Container maxWidth="xl" sx={{ textAlign: "center" }}>
+          <MainAppBar />
+          <Container
+            maxWidth="xl"
+            sx={{
+              textAlign: "center",
+              mt: "1%",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <Typography variant="h1" color="white">
+                  {" "}
+                  Parameter Selection
+                </Typography>
+              </Grid>
               <Grid item xs={6}>
-                <Paper>
-                  <SearchBar setSearchQuery={setSearchQueryBody} />
+                <Paper sx={{ backgroundColor: "white" }}>
                   <List
-                    sx={{ maxHeight: 300, overflow: "auto" }}
-                    subheader={<ListSubheader inset>Body Parts</ListSubheader>}
+                    sx={{
+                      height: 400,
+                      overflow: "auto",
+                    }}
+                    subheader={
+                      <Stack
+                        direction="row"
+                        alignItems="center"
+                        justifyContent="space-inbetween"
+                        sx={{ mt: 1, mb: 1 }}
+                      >
+                        <ListSubheader>
+                          <Typography variant="h4" color="black">
+                            Body Parts
+                          </Typography>
+                        </ListSubheader>
+                        <SearchBar setSearchQuery={setSearchQueryBody} />
+                      </Stack>
+                    }
                   >
                     {bodyPartsFiltered.map((item, index) => {
                       return (
@@ -201,11 +232,27 @@ export default function Select() {
                 </Paper>
               </Grid>
               <Grid item xs={6}>
-                <Paper>
-                  <SearchBar setSearchQuery={setSearchQueryEquip} />
+                <Paper sx={{ backgroundColor: "white" }}>
                   <List
-                    sx={{ maxHeight: 300, overflow: "auto" }}
-                    subheader={<ListSubheader inset>Equipment</ListSubheader>}
+                    sx={{
+                      height: 400,
+                      overflow: "auto",
+                    }}
+                    subheader={
+                      <Stack
+                        direction="row"
+                        alignItems="center"
+                        justifyContent="space-inbetween"
+                        sx={{ mt: 1, mb: 1 }}
+                      >
+                        <ListSubheader>
+                          <Typography variant="h4" color="black">
+                            Equipment
+                          </Typography>
+                        </ListSubheader>
+                        <SearchBar setSearchQuery={setSearchQueryEquip} />
+                      </Stack>
+                    }
                   >
                     {equipmentFiltered.map((item, index) => {
                       return (
@@ -223,17 +270,24 @@ export default function Select() {
                 </Paper>
               </Grid>
             </Grid>
+            <br></br>
             <Button variant="contained" onClick={handleSubmit}>
-              Submit
+              Search for Exercises
             </Button>
             {exerciseObject && (
-              <div style={{ height: 400, width: "100%" }}>
+              <Paper
+                sx={{
+                  backgroundColor: "white",
+                  height: 300,
+                  mt: 3,
+                }}
+              >
                 <DataGrid
                   rows={exerciseObject}
                   columns={columns}
                   columnVisibilityModel={{ gifUrl: false }}
                 />
-              </div>
+              </Paper>
             )}
           </Container>
         </Box>
