@@ -19,6 +19,8 @@ import { useState } from "react";
 import { bodyParts, equipment } from "../helperFunctions/lists";
 import { DataGrid } from "@mui/x-data-grid";
 import MainAppBar from "./components/navbar";
+import { theme } from "../components/theme";
+import { ThemeProvider } from "@mui/system";
 
 const axios = require("axios");
 
@@ -162,78 +164,80 @@ export default function Select() {
 
   return (
     <>
-      <MainAppBar />
-      <Box
-        component="section"
-        sx={{
-          display: "flex",
-          overflow: "auto",
-          flexDirection: "column",
-          height: "80vh",
-          mt: "5%",
-        }}
-      >
-        <Container maxWidth="xl" sx={{ textAlign: "center" }}>
-          <Grid container spacing={2}>
-            <Grid item xs={6}>
-              <Paper>
-                <SearchBar setSearchQuery={setSearchQueryBody} />
-                <List
-                  sx={{ maxHeight: 300, overflow: "auto" }}
-                  subheader={<ListSubheader inset>Body Parts</ListSubheader>}
-                >
-                  {bodyPartsFiltered.map((item, index) => {
-                    return (
-                      <ListItem key={item} role={undefined} divider dense>
-                        <Checkbox
-                          onChange={(e) => {
-                            handleBodyChange(e, item);
-                          }}
-                        />
-                        <ListItemText id={item} primary={item} />
-                      </ListItem>
-                    );
-                  })}
-                </List>
-              </Paper>
+      <ThemeProvider theme={theme}>
+        <MainAppBar />
+        <Box
+          component="section"
+          sx={{
+            display: "flex",
+            overflow: "auto",
+            flexDirection: "column",
+            height: "80vh",
+            mt: "5%",
+          }}
+        >
+          <Container maxWidth="xl" sx={{ textAlign: "center" }}>
+            <Grid container spacing={2}>
+              <Grid item xs={6}>
+                <Paper>
+                  <SearchBar setSearchQuery={setSearchQueryBody} />
+                  <List
+                    sx={{ maxHeight: 300, overflow: "auto" }}
+                    subheader={<ListSubheader inset>Body Parts</ListSubheader>}
+                  >
+                    {bodyPartsFiltered.map((item, index) => {
+                      return (
+                        <ListItem key={item} role={undefined} divider dense>
+                          <Checkbox
+                            onChange={(e) => {
+                              handleBodyChange(e, item);
+                            }}
+                          />
+                          <ListItemText id={item} primary={item} />
+                        </ListItem>
+                      );
+                    })}
+                  </List>
+                </Paper>
+              </Grid>
+              <Grid item xs={6}>
+                <Paper>
+                  <SearchBar setSearchQuery={setSearchQueryEquip} />
+                  <List
+                    sx={{ maxHeight: 300, overflow: "auto" }}
+                    subheader={<ListSubheader inset>Equipment</ListSubheader>}
+                  >
+                    {equipmentFiltered.map((item, index) => {
+                      return (
+                        <ListItem key={item} role={undefined} divider dense>
+                          <Checkbox
+                            onChange={(e) => {
+                              handleEquipChange(e, item);
+                            }}
+                          />
+                          <ListItemText id={item} primary={item} />
+                        </ListItem>
+                      );
+                    })}
+                  </List>
+                </Paper>
+              </Grid>
             </Grid>
-            <Grid item xs={6}>
-              <Paper>
-                <SearchBar setSearchQuery={setSearchQueryEquip} />
-                <List
-                  sx={{ maxHeight: 300, overflow: "auto" }}
-                  subheader={<ListSubheader inset>Equipment</ListSubheader>}
-                >
-                  {equipmentFiltered.map((item, index) => {
-                    return (
-                      <ListItem key={item} role={undefined} divider dense>
-                        <Checkbox
-                          onChange={(e) => {
-                            handleEquipChange(e, item);
-                          }}
-                        />
-                        <ListItemText id={item} primary={item} />
-                      </ListItem>
-                    );
-                  })}
-                </List>
-              </Paper>
-            </Grid>
-          </Grid>
-          <Button variant="contained" onClick={handleSubmit}>
-            Submit
-          </Button>
-          {exerciseObject && (
-            <div style={{ height: 400, width: "100%" }}>
-              <DataGrid
-                rows={exerciseObject}
-                columns={columns}
-                columnVisibilityModel={{ gifUrl: false }}
-              />
-            </div>
-          )}
-        </Container>
-      </Box>
+            <Button variant="contained" onClick={handleSubmit}>
+              Submit
+            </Button>
+            {exerciseObject && (
+              <div style={{ height: 400, width: "100%" }}>
+                <DataGrid
+                  rows={exerciseObject}
+                  columns={columns}
+                  columnVisibilityModel={{ gifUrl: false }}
+                />
+              </div>
+            )}
+          </Container>
+        </Box>
+      </ThemeProvider>
     </>
   );
 }
