@@ -39,7 +39,23 @@ export default function Buttons() {
             },
           }}
         >
-          Records
+          Add Record
+        </Button>
+        <Button
+          variant="contained"
+          href="/display"
+          sx={{
+            mt: 2,
+            mb: 2,
+            mr: 3,
+            backgroundColor: "#3A3976",
+            "&:hover": {
+              backgroundColor: "#fff",
+              color: "#3A3976",
+            },
+          }}
+        >
+          Show Record
         </Button>
         <Button
           variant="contained"
