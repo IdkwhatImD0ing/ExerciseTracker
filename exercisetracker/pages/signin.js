@@ -91,7 +91,7 @@ const Login = () => {
               backgroundColor: "rgba(255, 255, 255, 0.475)",
             }}
           >
-            <Avatar sx={{ m: 1 }}>
+            <Avatar sx={{ m: 1, backgroundColor: "#3b0069" }}>
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5" color="black">
