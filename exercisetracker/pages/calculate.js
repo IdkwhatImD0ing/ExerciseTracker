@@ -63,40 +63,43 @@ export default function DataEntry() {
       .request(options)
       .then(function (response) {
         setBMI(response.data.data);
+        let options2 = {
+          method: "GET",
+          url: "https://fitness-calculator.p.rapidapi.com/bodyfat",
+          params: {
+            age: data.get("age"),
+            gender: gender,
+            weight: data.get("weight"),
+            height: data.get("height"),
+            neck: data.get("neck"),
+            waist: data.get("waist"),
+            hip: data.get("hip"),
+          },
+          headers: {
+            "X-RapidAPI-Key": process.env.NEXT_PUBLIC_RAPIDAPI,
+            "X-RapidAPI-Host": "fitness-calculator.p.rapidapi.com",
+          },
+        };
+
+        addStats(auth, options2.params);
+        axios
+          .request(options2)
+          .then(function (response2) {
+            setBodyFat(response2.data.data);
+            addTimeStats(auth, [
+              value,
+              response.data.data.bmi,
+              response2.data.data["Body Fat (BMI method)"],
+            ]);
+            setCalculated(true);
+          })
+          .catch(function (error) {
+            console.error(error);
+          });
       })
       .catch(function (error) {
         console.error(error);
       });
-
-    let options2 = {
-      method: "GET",
-      url: "https://fitness-calculator.p.rapidapi.com/bodyfat",
-      params: {
-        age: data.get("age"),
-        gender: gender,
-        weight: data.get("weight"),
-        height: data.get("height"),
-        neck: data.get("neck"),
-        waist: data.get("waist"),
-        hip: data.get("hip"),
-      },
-      headers: {
-        "X-RapidAPI-Key": process.env.NEXT_PUBLIC_RAPIDAPI,
-        "X-RapidAPI-Host": "fitness-calculator.p.rapidapi.com",
-      },
-    };
-
-    addStats(auth, options2.params);
-    axios
-      .request(options2)
-      .then(function (response) {
-        setBodyFat(response.data.data);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-    addTimeStats(auth, [value, bmi.bmi, bodyFat["Body Fat (BMI method)"]]);
-    setCalculated(true);
   };
 
   return (
