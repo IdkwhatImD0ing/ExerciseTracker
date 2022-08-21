@@ -1,5 +1,6 @@
 import { useAuth } from "../auth/UserAuthContext";
 import { useRouter } from "next/router";
+import Image from "next/image";
 import { Box, Container, Stack } from "@mui/system";
 import { ThemeProvider, Typography } from "@mui/material";
 import MainAppBar from "./components/navbar";
@@ -33,7 +34,7 @@ export default function ShowExercise() {
             >
               <Typography>{name}</Typography>
               <Typography>ID: {id}</Typography>
-              <img src={gifUrl} alt="Exercise gif" />
+              <Image src={gifUrl} alt="Exercise gif" width={500} height={500} />
               <Typography>Body Part: {bodyPart}</Typography>
               <Typography>Equipment: {equipment}</Typography>
               <Typography>Target: {target}</Typography>

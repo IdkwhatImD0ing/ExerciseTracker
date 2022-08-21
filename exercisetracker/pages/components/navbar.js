@@ -2,6 +2,8 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Container from "@mui/material/Container";
+import Link from "next/link";
+import Image from "next/image";
 import { useAuth } from "../../auth/UserAuthContext";
 import { useRouter } from "next/router";
 import { Stack, ThemeProvider, Typography } from "@mui/material";
@@ -28,14 +30,14 @@ export default function MainAppBar() {
               sx={{ width: "100%" }}
             >
               <Box>
-                <Stack direction="row" alignItems="center">
-                  <a href="/">
-                    <img src="/logo.png" alt="logo" height={50} />
-                  </a>
-                  <Typography variant="h4" component="div" sx={{ ml: 2 }}>
-                    RemoteTrainer
-                  </Typography>
-                </Stack>
+                <Link href="/">
+                  <Stack direction="row" alignItems="center">
+                    <Image src="/logo.png" alt="logo" height={50} width={50} />
+                    <Typography variant="h4" component="div" sx={{ ml: 2 }}>
+                      RemoteTrainer
+                    </Typography>
+                  </Stack>
+                </Link>
               </Box>
 
               {!auth.user && <LoginButtons />}
