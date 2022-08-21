@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import Head from "next/head";
 import {
   Grid,
   List,
@@ -164,6 +165,10 @@ export default function Select() {
   return (
     <>
       <ThemeProvider theme={theme}>
+        <Head>
+          <title>Select</title>
+          <link rel="icon" href="/icon.ico" />
+        </Head>
         <Box
           component="section"
           sx={{

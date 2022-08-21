@@ -1,6 +1,7 @@
 import { useAuth } from "../auth/UserAuthContext";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import Head from "next/head";
 import { Box, Container, Stack } from "@mui/system";
 import { ThemeProvider, Typography, Paper } from "@mui/material";
 import MainAppBar from "./components/navbar";
@@ -17,6 +18,10 @@ export default function ShowExercise() {
   return (
     <>
       <ThemeProvider theme={theme}>
+        <Head>
+          <title>Exercise</title>
+          <link rel="icon" href="/icon.ico" />
+        </Head>
         <Box
           component="section"
           sx={{
