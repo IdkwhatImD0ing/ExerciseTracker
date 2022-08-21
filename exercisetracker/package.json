@@ -9,11 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-
-    "axios": "^0.27.2",
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
+    "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.10.1",
+    "axios": "^0.27.2",
     "firebase": "^9.9.3",
     "next": "12.2.5",
     "react": "18.2.0",
