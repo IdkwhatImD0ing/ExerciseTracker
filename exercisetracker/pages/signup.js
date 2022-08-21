@@ -1,13 +1,10 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-
 import { useAuth } from "../auth/UserAuthContext";
 import { setErrorMessage } from "../auth/setErrorMessage";
-
 import * as React from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -24,7 +21,7 @@ function Copyright(props) {
     <Typography variant="body2" align="center" color="#FFFFFF" {...props}>
       {"Copyright © "}
       <Link color="#FFFFFF" href="/">
-        ExerciseTracker
+        RemoteTrainer
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -68,25 +65,24 @@ const SignUp = () => {
         <title>Sign Up</title>
         <link rel="icon" href="/icon.ico" />
       </Head>
-      <MainAppBar />
+
       <Box
-        width="100vw"
-        height="90vh"
-        direction="column"
-        alignItems="center"
-        justify="center"
+        component="section"
         sx={{
+          display: "flex",
+          overflow: "auto",
           backgroundImage: `url(${url})`,
-          backgroundSize: "cover",
           backgroundPosition: "center",
-          padding: "7%",
+          backgroundSize: "cover",
+          flexDirection: "column",
+          height: "100vh",
         }}
       >
+        <MainAppBar />
         <Container component="main" maxWidth="xs">
-          <CssBaseline />
           <Box
             sx={{
-              marginTop: 0,
+              marginTop: "50%",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
