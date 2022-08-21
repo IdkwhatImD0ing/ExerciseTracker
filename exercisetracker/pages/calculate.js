@@ -72,8 +72,8 @@ export default function DataEntry() {
     axios
       .request(options)
       .then(function (response) {
-        console.log(response.data);
-        setBMI(response.data);
+        console.log(response.data.data);
+        setBMI(response.data.data);
       })
       .catch(function (error) {
         console.error(error);
@@ -100,8 +100,8 @@ export default function DataEntry() {
     axios
       .request(options2)
       .then(function (response) {
-        console.log(response.data);
-        setBodyFat(response.data);
+        console.log(response.data.data);
+        setBodyFat(response.data.data);
       })
       .catch(function (error) {
         console.error(error);
