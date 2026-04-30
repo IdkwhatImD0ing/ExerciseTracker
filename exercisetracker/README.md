@@ -11,7 +11,7 @@ Furthermore, sometimes it feel like working out is doing nothing, and thus we lo
 
 RemoteTrainer allows people to filter and search through the muscle groups they are trying to work out as well as the equipment they have, and after submitting that information, RemoteTrainer will show a list of exercises that the user can use. 
 
-Moreoever, a gif is provided showing how to perform the exercise, as well as some small details about the exercise. 
+Moreoever, a gif is provided showing how to perform the exercise, as well as some small details about the exercise. Exercises with known third-party demo issues, such as the single-leg glute bridge, use a corrected local visual and form instructions. 
 
 The app will also keep track of the users BMI and body fat as the user keeps updating their information regarding age, height, weight, etc.
 

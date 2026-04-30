@@ -23,6 +23,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import MainAppBar from "./components/navbar";
 import { theme } from "../components/theme";
 import { ThemeProvider } from "@mui/system";
+import { applyExerciseCorrections } from "../helperFunctions/exerciseCorrections";
 
 const axios = require("axios");
 
@@ -143,7 +144,7 @@ export default function Select() {
             bodyIndex.includes(data[i].bodyPart) &&
             equipmentIndex.includes(data[i].equipment)
           ) {
-            returnData.push(data[i]);
+            returnData.push(applyExerciseCorrections(data[i]));
           }
         }
         setExerciseObject(returnData);

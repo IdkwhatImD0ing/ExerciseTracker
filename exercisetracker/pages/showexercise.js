@@ -2,15 +2,19 @@ import { useAuth } from "../auth/UserAuthContext";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Head from "next/head";
-import { Box, Container, Stack } from "@mui/system";
+import { Box, Stack } from "@mui/system";
 import { ThemeProvider, Typography, Paper } from "@mui/material";
 import MainAppBar from "./components/navbar";
 import { theme } from "../components/theme";
+import { getExerciseCorrection } from "../helperFunctions/exerciseCorrections";
 
 export default function ShowExercise() {
   const auth = useAuth();
   const router = useRouter();
   const { id, name, bodyPart, equipment, target, gifUrl } = router.query;
+  const correction = getExerciseCorrection(name);
+  const displayImage = correction?.gifUrl || gifUrl;
+  const imageAlt = correction?.imageAlt || "Exercise gif";
 
   const url =
     "https://images.unsplash.com/photo-1576678927484-cc907957088c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80";
@@ -53,11 +57,16 @@ export default function ShowExercise() {
                 <Typography>{name}</Typography>
                 <Typography>ID: {id}</Typography>
                 <Image
-                  src={gifUrl}
-                  alt="Exercise gif"
+                  src={displayImage}
+                  alt={imageAlt}
                   width={500}
                   height={500}
                 />
+                {correction?.instructions && (
+                  <Typography sx={{ maxWidth: 500, textAlign: "center" }}>
+                    {correction.instructions}
+                  </Typography>
+                )}
                 <Typography>Body Part: {bodyPart}</Typography>
                 <Typography>Equipment: {equipment}</Typography>
                 <Typography>Target: {target}</Typography>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500" role="img" aria-labelledby="title desc">
+  <title id="title">Single leg glute bridge</title>
+  <desc id="desc">A person lying on their back with one knee bent, one leg extended, and hips lifted for a single leg glute bridge.</desc>
+  <rect width="500" height="500" fill="#f7f2ea"/>
+  <line x1="70" y1="360" x2="430" y2="360" stroke="#c89f7a" stroke-width="16" stroke-linecap="round"/>
+  <circle cx="132" cy="262" r="35" fill="#5b4636"/>
+  <path d="M162 282 C218 278 244 246 287 246" fill="none" stroke="#2e6f95" stroke-width="28" stroke-linecap="round"/>
+  <path d="M276 248 C319 247 354 252 392 266" fill="none" stroke="#2e6f95" stroke-width="24" stroke-linecap="round"/>
+  <path d="M289 250 C304 292 330 326 368 352" fill="none" stroke="#f28c54" stroke-width="24" stroke-linecap="round"/>
+  <path d="M288 248 C248 299 213 333 174 354" fill="none" stroke="#f28c54" stroke-width="24" stroke-linecap="round"/>
+  <path d="M174 354 L226 354" fill="none" stroke="#f28c54" stroke-width="24" stroke-linecap="round"/>
+  <path d="M118 303 C142 330 169 343 204 342" fill="none" stroke="#2e6f95" stroke-width="18" stroke-linecap="round"/>
+  <path d="M95 362 L236 362" stroke="#52443b" stroke-width="10" stroke-linecap="round"/>
+  <path d="M330 350 L402 350" stroke="#52443b" stroke-width="10" stroke-linecap="round"/>
+  <path d="M275 232 L275 182" stroke="#4c9f70" stroke-width="8" stroke-linecap="round"/>
+  <path d="M252 205 L275 182 L298 205" fill="none" stroke="#4c9f70" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="250" y="420" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#3f332b">Hips and butt push upward</text>
+</svg>

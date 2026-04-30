@@ -11,9 +11,9 @@ Furthermore, sometimes it feel like working out is doing nothing, and thus we lo
 
 ## What it does
 
-RemoteTrainer allows people to filter and search through the muscle groups they are trying to work out as well as the equipment they have, and after submitting that information, RemoteTrainer will show a list of exercises that the user can use. 
+RemoteTrainer allows people to filter and search through the muscle groups they are trying to work out as well as the equipment they have, and after submitting that information, RemoteTrainer will show a list of exercises that the user can use.
 
-Moreoever, a gif is provided showing how to perform the exercise, as well as some small details about the exercise. 
+Moreoever, a gif is provided showing how to perform the exercise, as well as some small details about the exercise. When an upstream exercise demo is inaccurate, RemoteTrainer can apply a local correction; for example, the single-leg glute bridge/raise now shows lying on your back with one knee bent, the other leg extended, and lifting the hips and butt upward.
 
 The app will also keep track of the users BMI and body fat as the user keeps updating their information regarding age, height, weight, etc.
 
